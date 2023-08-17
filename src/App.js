@@ -14,7 +14,9 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setSmallImagesData(data);
+        console.log(data)
       });
+
   }, []);
 
   const [smallImagesData, setSmallImagesData] = useState([]);
@@ -32,7 +34,7 @@ function App() {
         <div className="image-text">
           <h2>GREAT IPA</h2>
           <p>
-            some hops is plowed. An often hairy girl scout thoroughly makes a
+            Some hops is plowed. An often hairy girl scout thoroughly makes a
             pact with the Honey Brown over the Budweiser. A blood clot makes a
             pact with the discusting satelliste brewery. A lover about the
             Pilsner Urquell takes a peek at the bottle of beer. The coors light,
@@ -41,7 +43,7 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="small-images">
+      <div className="small-images" data-testid="small-images">
         {smallImagesData.length > 0 ? (
           smallImagesData.map((imageData, index) => (
             <Item imageData={imageData} index={index} setSmallImagesData={setSmallImagesData} />
@@ -59,35 +61,37 @@ function App() {
   );
 }
 
-function Item({imageData, index, setSmallImagesData}){
+function Item({ imageData, index, setSmallImagesData }) {
   const [isLiked, setIsLiked] = useState();
   const handleLikeClick = (imageData, index) => {
     setIsLiked((prev) => !prev);
   };
   return (
-    <div className="small-image" key={index}>
-              <div className="card-header">
-                {isLiked ? (
-                  <AiFillHeart
-                    className="love-icon"
-                    color="red"
-                    size={20}
-                    onClick={() => {handleLikeClick(imageData,index)}}
-                    />
-                    ) : (
-                      <AiOutlineHeart
-                      className="love-icon"
-                      size={20}
-                      onClick={() => {handleLikeClick(imageData,index)}}
-                  />
-                )}
-                <img src={imageData.image_url} alt={imageData.title} />
-              </div>
-              <div className="card-content">
-                <h2>{imageData.name}</h2>
-                <p>{imageData.description}</p>
-              </div>
-            </div>
+    <div className="small-image" data-testid="small-image" key={index}>
+      <div className="card-header">
+        {isLiked ? (
+          <AiFillHeart
+            data-testid="like-icon"
+            className="love-icon"
+            color="red"
+            size={20}
+            onClick={() => { handleLikeClick(imageData, index) }}
+          />
+        ) : (
+          <AiOutlineHeart
+            data-testid="like-icon"
+            className="love-icon"
+            size={20}
+            onClick={() => { handleLikeClick(imageData, index) }}
+          />
+        )}
+        <img src={imageData.image_url} alt={imageData.title} />
+      </div>
+      <div className="card-content">
+        <h2>{imageData.name}</h2>
+        <p>{imageData.brewers_tips}</p>
+      </div>
+    </div>
   );
 }
 export default App;
