@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import "../src/images/heart.jpg";
+
 import exampleImg from "../src/images/beer.jpg";
-// import imageUrl from '../src/images/heart.jpg';
-import whiteLoveIcon from "../src/images/white_heart.png";
-import redLoveIcon from "../src/images/red_heart.png";
+import logo from '../src/images/logo.jpg';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 function App() {
@@ -24,10 +22,14 @@ function App() {
   return (
     <div className="container">
       <div className="top-text">
-        <div className="logo"></div>
-        <a>HOME</a>
-        <a>BEERS</a>
-        <a>CONTACT</a>
+        <div >
+          <img className="logo" src={logo} />
+        </div>
+        <div className="header-fields">
+          <a>HOME</a>
+          <a>BEERS</a>
+          <a>CONTACT</a>
+        </div>
       </div>
       <div>
         <img className="bgimage" src={exampleImg} />

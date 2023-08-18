@@ -9,17 +9,32 @@
 .top-text {
   position: absolute;
   left: 0%;
-  display: flex;
-  gap: 20px;
-  padding: 25px;
-  justify-content: flex-end;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   font-size: 15px;
   font-weight: bold;
   width: 100%; 
   box-sizing: border-box;
+  align-items: center;
+  height:10vh;
   
+}
+
+.logo{
+    float: left;
+    height:40px;
+    width: 40px;
+    padding-left:50px;
+    padding-top: 10px;
+    
+}
+.header-fields{
+  float: right;
+  gap:20px;
+  padding-right:40px;
+  padding-top: 20px;
+  display:flex;
+  justify-content: flex-end;
 }
 
 .image-text {

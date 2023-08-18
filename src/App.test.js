@@ -13,7 +13,6 @@ name: "Beer 1",
 brewers_tips: "Tips 1",
 image_url: "https://example.com/beer1.jpg",
 },
-// Add more beer objects as needed
 ]),
 });
 });
@@ -77,4 +76,65 @@ userEvent.click(likeIcon);
 // Check if the like icon is now not liked
 expect(likeIcon).toHaveClass("love-icon");
 });
+
+test('renders home, beers, and contact links', () => {
+
+  const { getByText } = render(<App />);
+
+  const homeLink = getByText(/home/i);  const beersLink = getByText(/beers/i);
+
+  expect(homeLink).toBeInTheDocument();
+
 });
+
+test('renders home, beers, and contact links', () => {
+
+    const { getByText } = render(<App />);
+
+    const beersLink = getByText(/beers/i);
+
+    expect(beersLink).toBeInTheDocument();
+
+  });
+
+  test('renders home, beers, and contact links', () => {
+
+    const { getByText } = render(<App />);
+
+    const contactLink = getByText(/contact/i);
+
+    expect(contactLink).toBeInTheDocument();
+
+  });
+
+ 
+
+test('renders image text', () => {
+
+  const { getByText } = render(<App />);
+
+  const heading = getByText(/GREAT IPA/i);
+
+  expect(heading).toBeInTheDocument();
+
+});
+
+test('renders image text', () => {
+
+    const { getByText } = render(<App />);
+
+    const paragraph = getByText(/some hops is plowed/i);
+
+    expect(paragraph).toBeInTheDocument();
+
+  });
+
+
+});
+
+
+
+ 
+
+
+ 
